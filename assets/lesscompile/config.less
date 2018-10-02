@@ -1,0 +1,266 @@
+// config form
+
+.form-control{
+	border-radius: 0;
+}
+.label-light{
+	color:#fff;
+}
+
+
+//config buttons
+
+.btn-succ{
+	-webkit-box-shadow: 1px 4px 3px -2px rgba(0,0,0,0.33);
+	-moz-box-shadow: 1px 4px 3px -2px rgba(0,0,0,0.33);
+	box-shadow: 1px 4px 3px -2px rgba(0,0,0,0.33);
+	background: #4caf50;
+	padding: 10px;
+	color:#fff;
+	&:hover{
+		background: #4caf50;
+	}
+}
+.btn-out-sample-light{
+	border: solid 1px;
+	background: none;
+	margin: auto;
+	color:#fff;
+	&:focus, &:hover{
+		outline: none;
+		cursor: pointer;
+	}
+}
+.btn-out-sample-dark{
+	margin: auto;
+	text-align: center;
+	border: solid 1px;
+	background: none;
+	color:#001;
+	&:focus, &:hover{
+		outline: none;
+		cursor: pointer;
+	}
+}
+.btn-out-sample-primary{
+	margin: auto;
+	text-align: center;
+	border: solid 1px;
+	background: none;
+	color:#dc3545;
+	&:focus, &:hover{
+		outline: none;
+		cursor: pointer;
+	}
+}
+.btn-sample-primary{
+	margin: auto;
+	text-align: center;
+	border: solid 1px;
+	background: none;
+	border-color: #dc3545;
+	color:#fff;
+	background: #dc3545;
+	&:focus, &:hover{
+		outline: none;
+		cursor: pointer;
+	}
+}
+//config headers
+.main_header{
+
+	padding-left: 250px;
+	position: relative; 
+	.top_header{
+		-webkit-box-shadow: -1px 3px 7px 0px rgba(0,0,0,0.43);
+		-moz-box-shadow: -1px 3px 7px 0px rgba(0,0,0,0.43);
+		box-shadow: -1px 3px 7px 0px rgba(0,0,0,0.43);
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		background: #dc3545;
+		.nav_brand {
+			max-width: 100%;
+			padding: 15px;
+			color: #fff;
+		}
+	}
+	.header_view{
+		padding-top: 15px;
+		padding-left: 15px;
+		background: #fff;
+		width: 100%;
+		.page_title{
+			font-size: 20px;
+			margin: 0;
+		}
+	}
+}
+.notify_container{
+	background: #6c757d;
+	padding: 15px;
+	color:#fff;
+	position: fixed;
+	right: 0;
+	margin: auto;
+	display: none;
+	z-index: 999999;
+}
+
+.user_options_content{
+	padding: 15px;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+@media (max-width: 750px)
+{
+	.main_header{
+		padding: 0;
+	}
+}
+
+// main wrapper
+.main_wrapper{
+	padding-left: 250px;
+	background: #fff;
+	height: 100%;
+	@media (max-width: 768px){
+		padding-left: 0;
+	}
+}
+.wrapper_content{
+	padding: 15px;
+	position: relative;
+	height: 100%;
+}
+
+//stats headers
+@p_card: 10px;
+.relat-stats{
+	
+}
+
+.stat_card{
+	border: 1px solid #e0e0e0;
+	a{
+		text-decoration: none;
+		display: block;
+		color:#dc3545;
+		&:hover, &:focus{
+			color:#f18284;
+			background: none;
+			border: none;
+			outline: none;
+		}
+	}
+	padding: 15px;
+	.stat_card_hd{
+		h6{
+			margin: 0;
+		}
+	}
+	.stat_card_bd{
+		.stat_number{
+			font-weight: 900;
+			font-size: 26px;
+			margin: 0;
+		}
+
+	}
+	.stat_card_ft{
+
+	}
+}
+
+
+//user table list
+
+.table_list_container{
+	border-bottom: dashed 1px #f3f3f3 ;
+	padding: 10px 15px;
+	.table_list_item{
+		width: 100%;
+		margin: auto;
+		&:before{
+			width: 100%;
+			margin: auto;
+			text-align: center;
+			font-size: 36px;
+			color:#cd3e41;
+		}
+		display: flex;
+		vertical-align: middle;
+		width: 100%;
+		ul{
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+		li{
+			word-wrap: break-word;
+		}
+		}
+		.list_title{
+			font-weight: bold;
+			font-size: 16px;
+		}
+		.list_md_text{
+			font-size: 14px;
+		}
+		.list_sm_text{
+			font-size: 12px;
+			color:#676767;
+		}
+	}
+
+	@media (max-width: 768px)
+	{
+		.table_list_item{
+			&:before, .icon_list, {
+				display: none !important;
+			}
+		}
+		[class~='hidden-mob']{
+			display: none;
+		}
+	}
+}
+
+// Actions 
+.launch_act{
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+	top:30%;
+	font-size: 22px;
+	width: fit-content;
+}
+
+/*
+Status config
+*/
+.status{
+	font-size: 13px;
+	padding-right: 6px;
+	padding-left: 4px;
+	border-radius:4px;
+}
+#status_pendente{
+	background: #ff813e;;
+	color:#fff;
+}
+#status_processando{
+	background: #007bff;
+	color:#fff;
+}
+#status_finalizado{
+	background: #70a728;
+	color:#fff;
+}
+#status_cancelado{
+	background: #dc3545;
+	color:#fff;
+}

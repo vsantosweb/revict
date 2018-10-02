@@ -1,0 +1,139 @@
+
+.navbar{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
+	padding: 0;
+	z-index: 99999;
+	&.vs_navtop .nav-item .nav-link{
+		color: #fff;
+	}
+	&.vs_sidebar{
+		.vs_dropdown{
+	.dropdown-toggle{
+		&.active, &:hover{
+			background:#1f1f1f !important;
+		}
+	}
+	.dropdown-menu{
+		position: relative;
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		border-radius: 0;
+		border: none;
+		background: #1f1f1f;
+		.dropdown-item{
+			font-size: 14px;
+			color:#ccc;
+			padding: 10px 10px;
+			background: #1f1f1f;	
+			&:hover{
+				color:#ccc;
+				background: #1f1f1f;
+			}		}
+		}
+	}
+		overflow: hidden;
+		transition: transform 0.5s;
+		width: 250px;
+		position: fixed;
+		background:#171717;;
+		z-index: 3;
+		height: 100%;
+		.vs_sidenav_header{
+			width: 100%;
+			display: flex;
+			position: relative;
+			justify-content: flex-end;
+			.nav_brand{
+				width: 100%;
+				padding: 15px;
+				color:#fff;
+			}
+			.toggle_nav{
+				display: none;
+				color: #fff;
+				font-size: 23px;
+				background: none;
+				outline: none;
+				box-shadow: none;
+				border: none;
+				cursor: pointer;
+			}
+		}
+		ul{	
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			height: 100%;
+			display: block;
+			.nav-item{
+				.nav-link{
+					padding: 10px 0px;
+					text-decoration: none;
+					width: 100%;
+					color: #ccc;
+					font-size: 14px;
+					display: table;
+					.vs_iconc{
+						padding: 15px;
+						color:#dc3545;
+						font-size: 18px;
+						vertical-align: middle;
+					}
+					&:hover{
+						background:#17293c;
+						color: #888;
+					}
+					&.active{
+						border-right: dashed 2px #525252;
+						background:#17293c;
+						color: #888;
+					}
+				}
+
+			}
+		}
+		&.show{
+			transition: transform 0.5s;
+			transform: translateX(0);
+		}
+
+	}
+}
+.toggle_nav{
+		display: none !important;
+	}
+@media (max-width: 768px)
+{
+	.vs_sidebar{
+		transform: translateX(-100%);
+		transition: transform 0.1s;
+		.vs_sidenav_header{
+			.toggle_nav{
+				display: block !important;
+				background: none;
+				border: none;
+				font-size: 26px;
+			}
+		}
+	}
+	.vs_sidebar{
+		width: 100% !important;
+		position: fixed;
+	}
+	.toggle_nav{
+		display: block !important;
+		background: none;
+		border: none;
+		font-size: 26px;
+		color:#fff;
+		&:focus{
+			outline: none;
+		}
+	}
+	.navbar.vs_sidebar ul .nav-item .nav-link{
+	font-size: 20px !important;
+}
+}
