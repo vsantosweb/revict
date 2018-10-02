@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>MECANICASHOW:: <?php //echo $this->page_title; ?> </title>
+	<title>::REVICT:: <?php //echo $this->page_title; ?> </title>
 	<meta name="robots" content="index, follow">
 	<meta name="language" content="pt-br">
 	<meta charset="utf-8">
