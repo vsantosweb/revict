@@ -13,6 +13,25 @@ html {
   padding: 13px 25px;
   cursor: pointer;
 }
+.main_wrapper {
+  background: #e0e0f9;
+  width: 100%;
+  height: 100%;
+}
+.main_container {
+  padding-top: 10px;
+}
+.main_header {
+  padding: 15px;
+}
+.rvct_table {
+  padding: 0 15px;
+  background: #fff;
+}
+.rvct_table td:last-child,
+.rvct_table th:last-child {
+  text-align: right;
+}
 .login_wrapper {
   background: #191a2c;
   width: 100%;
@@ -49,6 +68,60 @@ html {
     width: 100%;
     padding: 0px 18px;
   }
+}
+.rvct_header_navigation .rvct_navbar {
+  margin: 0;
+  box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.53);
+  display: inline-block;
+  width: 100%;
+  background: #fff;
+  color: #a2a2a2;
+  text-align: right;
+  font-size: 16px;
+  padding: 15px 0;
+}
+.rvct_header_navigation .rvct_navbar li {
+  font-weight: bold;
+  padding: 0 15px;
+  display: inline;
+}
+.rvct_header_navigation .rvct_navbar li a {
+  text-decoration: none;
+  color: #a2a2a2;
+}
+.rvct_navigation .rvct_navbar {
+  margin: 0;
+  box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.53);
+  display: inline-block;
+  width: 100%;
+  background: #191a2c;
+  color: #a2a2a2;
+  text-align: center;
+  font-size: 18px;
+  padding: 15px 0;
+}
+.rvct_navigation .rvct_navbar li {
+  font-weight: bold;
+  padding: 0 15px;
+  display: inline;
+}
+.rvct_navigation .rvct_navbar li a {
+  text-decoration: none;
+  color: #a2a2a2;
+}
+.rvct_navigation .rvct_navbar li a:hover {
+  color: #fff;
+}
+.rvct_task_nav {
+  background: red;
+}
+.rvct_task_nav ul {
+  display: inline-block;
+}
+.rvct_task_nav ul li {
+  padding: 10px;
+  background: #fff;
+  display: inline;
 }
 .navbar {
   font-family: 'Poppins', sans-serif;

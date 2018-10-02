@@ -1,23 +1,60 @@
 <?php include '../template/head.php'; ?>
+<?php include '../template/navbar.php'; ?>
 
-<div class="login_wrapper">
-  <div class="login_container">
-    <h2> Revict</h2>
-    <h4> Acesso Restrito </h4>
-    <form class="login_form">
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ex: teste@teste.com">
-        <small id="emailHelp" class="form-text text-muted">Digite seu Endereço de Email.</small>
+<div class="main_wrapper">
+ <div class="main_container container">
+  <div class="main_header row">
+    <div class="col-md-6">
+      <h1> Clientes </h1>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Total</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Cadastrar Novo</h5>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Senha</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
-        <small id="emailHelp" class="form-text text-muted">Digite sua Senha.</small>
-      </div>
-      <button type="submit" class="btn_login rvct_btn_primary">Entrar</button>
-    </form>
+    </div>
   </div>
+  <table class="rvct_table table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>
+          <div class="table_list_item col-md-1 col-1 p-0 btn-group">
+            <button type="button" class="btn-out-sample-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-gear"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a onclick="__TASK('alter', '91', this, 'cliente', 'list')" href="#" class="dropdown-item" data-toggle="modal"><i class="fa fa-user" data-toggle="modal"></i> Alterar Dados</a>
+              <a onclick="__TASK('del', '91', this, 'cliente', 'list')" href="#" class="dropdown-item" data-toggle="modal"><i class="fa fa-trash"></i> Exluir</a>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 </div>
 
 <?php include '../template/footer.php'; ?>

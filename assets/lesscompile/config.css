@@ -5,3 +5,22 @@
   padding: 13px 25px;
   cursor: pointer;
 }
+.main_wrapper {
+  background: #e0e0f9;
+  width: 100%;
+  height: 100%;
+}
+.main_container {
+  padding-top: 10px;
+}
+.main_header {
+  padding: 15px;
+}
+.rvct_table {
+  padding: 0 15px;
+  background: #fff;
+}
+.rvct_table td:last-child,
+.rvct_table th:last-child {
+  text-align: right;
+}

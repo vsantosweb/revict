@@ -1,5 +1,4 @@
-<?php include '../template/head.php'; ?>
-
+<?php include 'template/head.php'; ?>
 <div class="login_wrapper">
 <div class="login_container">
   <h2> Revict</h2>
@@ -20,4 +19,4 @@
 </div>
 </div>
 
-<?php include '../template/footer.php'; ?>
+<?php include 'template/footer.php'; ?>
