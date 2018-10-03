@@ -1,6 +1,7 @@
 <?php
 
 namespace models;
+
 class System {
 
 	private $session;
@@ -10,7 +11,6 @@ class System {
 	protected function check_route()
 	{
 		$this->session = session_start();
-		session_destroy();
 
 		$this->task = $_GET['task'];
 		$this->action = $_GET['action'];
@@ -31,8 +31,10 @@ class System {
 	{
 		if(class_exists('controllers\\'. $this->task))
 		{
-			echo 'encontrado';
+			if(method_exists('controllers\\'. $this->task, $this->action)){
 
+				echo 'existe';
+			}
 		}else{
 			'caralho';
 		}

@@ -2,8 +2,14 @@
 
 include 'autoload.php';
 
-use models\System;
+use models\RVCT_model;
 
-$app = new System;
+$crud = new RVCT_model;
 
-$app->init();
+
+$data = array("usr_usuario" => "Vitor", "usr_nome" => "estou", "usr_passwd"=> "foda");
+
+$crud->delete('rvct_users', 5);
+ //$crud->update('rvct_users', $data, 5);
+//$crud->get('rvct_clientes');
+//$crud->insert('rvct_users', $data);		

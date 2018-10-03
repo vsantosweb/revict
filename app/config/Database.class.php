@@ -6,7 +6,7 @@ class Database {
 
 	protected $db;
 	private $host ='localhost';
-	private $dbname ='mecanicashow';
+	private $dbname ='revict';
 	private $dbuser ='root';
 	private $dbpasswd ='developer';
 	private $charset = 'utf8';
