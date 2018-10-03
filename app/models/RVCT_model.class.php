@@ -6,6 +6,7 @@ use config\Database;
 
 class RVCT_model extends Database{
 
+
 	function __construct()
 	{
 		parent::__construct();
@@ -29,24 +30,25 @@ class RVCT_model extends Database{
 		}
 
 	}
-	public function get($table_name, $id = null)
+	protected function get($table_name, $id = null)
 	{
 		if(is_null($id))
 		{
 			$sql = $this->db->prepare("SELECT * FROM ".$table_name."");
 			//$sql->bindParam(':id', $id, \PDO::PARAM_INT);
 			$sql->execute();
-			return $sql->fetchAll();
+			return $sql->fetchAll(\PDO::FETCH_ASSOC);
+
 		}else{
 
 			$sql = $this->db->prepare("SELECT * FROM ".$table_name." WHERE id = :id");
 			$sql->bindParam(':id', $id, \PDO::PARAM_INT);
 			$sql->execute();
-			return $sql->fetchAll();
+			return $sql->fetchAll(\PDO::FETCH_ASSOC);
 		}
 		
 	}
-	public function update($table_name, $data, $id = null)
+	protected function update($table_name, $data, $id = null)
 	{
 
 		foreach($data as $keys => $values) {
@@ -57,11 +59,15 @@ class RVCT_model extends Database{
 		}
 
 	}
-	public function delete($table_name, $id = null)
+	protected function delete($table_name, $data = null)
 	{
+		foreach($data as $keys => $id){
 
-		$sql = $this->db->prepare("DELETE FROM ".$table_name." WHERE id= :id ");
-		$sql->bindParam(':id', $id, \PDO::PARAM_INT);
-		$sql->execute();
+			$sql = $this->db->prepare("DELETE FROM ".$table_name." WHERE id= :id ");
+			$sql->bindParam(':id', $id, \PDO::PARAM_INT);
+			$sql->execute();
+		}
+		
 	}
+
 }

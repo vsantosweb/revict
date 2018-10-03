@@ -6,10 +6,12 @@ use models\RVCT_model;
 
 $crud = new RVCT_model;
 
+$data = array("usr_usuario" => "cobranca@teste.com", "usr_nome" => "estou", "usr_passwd"=> "123");
 
-$data = array("usr_usuario" => "Vitor", "usr_nome" => "estou", "usr_passwd"=> "foda");
+$ids = array(49);
 
-$crud->delete('rvct_users', 5);
- //$crud->update('rvct_users', $data, 5);
-//$crud->get('rvct_clientes');
-//$crud->insert('rvct_users', $data);		
+
+//$crud->delete('rvct_clientes', $ids);
+//$crud->update('rvct_users', $data, 5);
+//$crud->delete('rvct_users', $values);
+$crud->insert('rvct_users', $data);		
