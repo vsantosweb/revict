@@ -6,12 +6,20 @@ use models\RVCT_model;
 
 class Login extends RVCT_model
 {
-	public $auth = false;
+	public $auth;
 
 	private $session_data = array();
+ 	
+	public function logout(){
 
-	public function status(){}
-	public function logout(){}
+		session_start();
+
+		print_r($_SESSION);
+
+		session_destroy();
+
+		header('location: http://localhost/revict/app/views/login');
+	}
 
 	public function auth()
 	{

@@ -14,6 +14,7 @@ class RVCT_model extends Database{
 
 	public function insert($table_name, $data) {
 
+
 		$arr_keys = array_keys($data);
 		$arr_values = array_values($data);
 		$keys = implode(', ' , $arr_keys);
@@ -23,16 +24,16 @@ class RVCT_model extends Database{
 		
 		if($sql->execute())
 		{
-			echo 'Tarefa realizada';
+			
 
 		}else{
-			echo 'Algo deu errado';
+			return false;
 		}
 
 	}
-	protected function get($table_name, $id = null)
+	protected function get($table_name, $row = null, $param = null)
 	{
-		if(is_null($id))
+		if(is_null($param) && is_null($row))
 		{
 			$sql = $this->db->prepare("SELECT * FROM ".$table_name."");
 			//$sql->bindParam(':id', $id, \PDO::PARAM_INT);
@@ -41,12 +42,19 @@ class RVCT_model extends Database{
 
 		}else{
 
-			$sql = $this->db->prepare("SELECT * FROM ".$table_name." WHERE id = :id");
-			$sql->bindParam(':id', $id, \PDO::PARAM_INT);
+			$sql = $this->db->prepare("SELECT * FROM ".$table_name." WHERE " .$row."=:param");
+			$sql->bindParam(':param', $param, \PDO::PARAM_STR);
 			$sql->execute();
 			return $sql->fetchAll(\PDO::FETCH_ASSOC);
 		}
 		
+	}
+	protected function custom_get($table_name, $order_by, $start, $end)
+	{
+		$sql = $this->db->prepare("SELECT * FROM ".$table_name." ORDER BY ". $order_by." desc LIMIT ".$start.",".$end."");
+		$sql->execute();
+
+		return $sql->fetchAll(\PDO::FETCH_ASSOC);
 	}
 	protected function update($table_name, $data, $id = null)
 	{

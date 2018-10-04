@@ -5,13 +5,6 @@ namespace views\login\components;
 include ('../../../autoload.php');
 
 
-
-
-//echo sha1('usr_passwd');
-//print_r($login->validate());
-
-
-
 function auth_validate($post) {
 
 	$login = new Login();
@@ -19,25 +12,33 @@ function auth_validate($post) {
 	foreach($login->validate() as $keys)
 	{
 		
-		if((strtolower($keys['usr_usuario']) == strtolower($post['usr_usuario'])) && 
-			$keys['usr_passwd'] == $post['usr_passwd']){
+		if((strtolower($keys['usr_usuario']) == strtolower($post['usr_usuario'])) && $keys['usr_passwd'] == $post['usr_passwd']){
 			
 			$login->auth = true;
-
-			return $keys;
 		} 
 
 	}
+	
 
+	if($login->auth()) {
 
-	return $login->auth() ? header('location: http://localhost/revict/app/views/home.php') : header('location: http://localhost/revict/app/views/login/') ;
+		$_SESSION = $keys;
+		header('location: http://localhost/revict/app/views/clientes');
+
+	}else{
+
+		unset($_SESSION);
+		session_destroy();
+		header('location: http://localhost/revict/app/views/login');
+	}
+	//header('location: http://localhost/revict/app/views/dashboard');
+
 }
 
 
-header('location: http://localhost/revict/app/views/home.php');
+auth_validate($_POST);
 
-$_SESSION = auth_validate($_POST);
 
-print_r($_SESSION);
+
 
 

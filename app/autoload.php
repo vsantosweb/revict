@@ -1,5 +1,7 @@
 <?php
 
+
+
 function autoload($file_name){
 
 	$file = $_SERVER['DOCUMENT_ROOT'] . '/revict/app/' . str_replace('\\', '/', $file_name) . '.class.php';
