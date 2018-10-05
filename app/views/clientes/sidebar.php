@@ -1,8 +1,13 @@
+
 <div class="col-md-2">
-	<div class="card" >
-		<div class="card-body">
-			<h5 class="card-title">Total</h5>
-			<h1 class="card-subtitle mb-2 text-muted"><?php echo count($cliente->data['total']);?></h1>
+	<div class="card rvct_card" style="width: 18rem;">
+		<div class="card-header">
+			Informações
 		</div>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">total: <?php echo count($cliente->data['total']);?></li>
+			<li class="list-group-item">Ativos: NaN</li>
+			<li class="list-group-item">Negativados: NaN</li>
+		</ul>
 	</div>
 </div>

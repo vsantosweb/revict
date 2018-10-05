@@ -4,18 +4,17 @@
 <?php include '../../template/navbar.php'; ?>
 
 <?php $cliente = new models\Clientes; 
-
+	print_r($cliente->status);
 ?>
 
 <div class="main_wrapper">
-	<div class="main_container container-fluid">
-
+	<div class="main_container container">
 		<div class="row">
 			<div class="col-md-10">
 				<div class="main_header row">
 					<div class="col-md-2">
 
-						<a href="addcliente.php" class="btn-block rvct_btn_primary">
+						<a href="addcliente.php" class="rvct_btn_primary">
 							Cadastrar
 						</a>
 					</div>
@@ -35,6 +34,7 @@
 								<th scope="col">Nome</th>
 								<th scope="col">Email</th>
 								<th scope="col">CPF</th>
+								<th scope="col">Status</th>
 								<th scope="col">Dt. Registro</th>
 								<th scope="col">Ações</th>
 							</tr>
@@ -42,17 +42,23 @@
 						<tbody>
 							<?php foreach($cliente->list() as $keys => $value) { ?>
 								<tr>
-									<th scope="row"><?php echo $value['id']; ?></th>
+									<td scope="row"><?php echo $value['id']; ?></td>
 									<td><?php echo $value['cli_nome']; ?></td>
 									<td><?php echo $value['cli_email']; ?></td>
 									<td><?php echo $value['cli_cpf']; ?></td>
-									<td><?php echo $value['cli_data_reg']; ?></td>
+									<td><span 
+										<?php echo 
+										($value['cli_status'] == 'negativado') ? 'class="status_2"' : 
+										(($value['cli_status'] == 'ativo') ? 'class="status_1"': 
+										($value['cli_status'] == 'desativado' ? 'class="status_3"': 'false'));?>>
+										<?php  echo ucfirst($value['cli_status']);?><span></td>
+									<td><?php echo date_format(new DateTime($keys['cli_data_reg']), "d/m/Y");?></td>
 									<td>
-										<div class="table_list_item col-md-1 col-1 p-0 btn-group">
-											<button type="button" class="btn-out-sample-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												<i class="fa fa-gear"></i>
+										<div class="btn-group">
+											<button type="button" class="btn rvct_simple_btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												<i class="fa fa-gear"></i> Ações
 											</button>
-											<div class="dropdown-menu dropdown-menu-right">
+											<div class="dropdown-menu dropdown-menu-right rvct_dropdown">
 												<a href="updatecliente.php?id=<?php echo $value['id'];?>" class="dropdown-item"><i class="fa fa-user"></i> Alterar Dados</a>
 												<a href="deletecliente.php?id=<?php echo $value['id'];?>" class="dropdown-item"><i class="fa fa-trash"></i> Exluir</a>
 											</div>
@@ -66,19 +72,20 @@
 			</div>
 			<?php include('sidebar.php');?>
 		</div>
+		<div class="row">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination ">
+					<?php
+
+					for($i = 1; $i <= $cliente->pagination; $i++){
+
+						echo '<li class="page-item material_shadow"><a class="page-link" href=?page='.$i.'>'.$i.'</a></li>';
+					}
+					?>
+				</ul>
+			</div>
+		</nav>
 	</div>
-	<nav aria-label="Page navigation example">
-		<ul class="pagination">
-			<?php
-
-			for($i = 1; $i <= $cliente->pagination; $i++){
-
-				echo '<li class="page-item"><a class="page-link" href=?page='.$i.'>'.$i.'</a></li>';
-			}
-			?>
-
-		</ul>
-	</nav>
 </div>
 
 <?php include '../../template/footer.php'; ?>

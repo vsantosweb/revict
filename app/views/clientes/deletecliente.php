@@ -14,13 +14,13 @@ foreach($row_match as $keys)
 
 
 		<div class="main_wrapper">
-			<div class="main_container container-fluid">
+			<div class="main_container container">
 				<div class="row">
 					<div class="col-md-10">
 						<div class="main_header row">
 							<div class="col-md-2">
 
-								<a href="index.php" class="btn-block rvct_btn_primary">
+								<a href="index.php" class="rvct_btn_primary">
 									<- Voltar
 								</a>
 							</div>
@@ -29,29 +29,24 @@ foreach($row_match as $keys)
 							</div>
 						</div>
 						<div class="row">
-							<div class="container">
-								<div class="col-md-12">
+							<div class="card material_shadow" style="width: 100%;">
+								<div class="card-header">
+									<h5 class="card-title"><?php echo $keys['cli_nome']; ?></h5>
+								</div>
+								<div class="card-body">
 									<div class="card">
-										<div class="card-header">
-											<h5 class="card-title"><?php echo $keys['cli_nome']; ?></h5>
-										</div>
-										<div class="card-body">
-											<div class="card">
-												<ul class="list-group list-group-flush">
-													<li class="list-group-item"><?php echo $keys['cli_cpf']; ?></li>
-													<li class="list-group-item"><?php echo $keys['cli_email']; ?></li>
-													<li class="list-group-item"><?php echo $keys['cli_data_reg']; ?></li>
-												</ul>
-											</div>
-											<div class="card-footer" style="float: right;">
-											<form  method="POST" action="save.php?token=<?php echo sha1('delete');?>">
+										<ul class="list-group list-group-flush">
+											<li class="list-group-item"><?php echo $keys['cli_cpf']; ?></li>
+											<li class="list-group-item"><?php echo $keys['cli_email']; ?></li>
+											<li class="list-group-item"><?php echo date_format(new DateTime($keys['cli_data_reg']), "d/m/Y");?></li>
+										</ul>
+									</div>
+									<div class="card-footer" style="float: right;">
+										<form  method="POST" action="save.php?token=<?php echo sha1('delete');?>">
 											<input hidden="true" name="id" value="<?php echo $keys['id'];?>">
-											<button type="submit" class="btn btn-danger card-link">Excluir</button>
-											<a href="index.php" class="btn btn-warning card-link">Cancelar</a>
-											</form>
-											</div>
-											
-										</div>
+											<a href="index.php" class="rvct_btn_secondary card-link">Cancelar</a>
+											<button type="submit" class="rvct_btn_primary card-link">Excluir</button>
+										</form>
 									</div>
 								</div>
 							</div>

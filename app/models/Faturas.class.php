@@ -1,17 +1,18 @@
 <?php
-namespace models;
+
+namespace model;
+
+use model\RVCT_model;
 
 class Clientes extends RVCT_model {
 
 	public $pagination;
 	public $data = array();
-	public $status;
 
 	function __construct()
 	{
 		parent::__construct();
 		$this->relatorios();
-		$this->set_status();
 	}
 	
 	public function create($data)
@@ -49,16 +50,7 @@ class Clientes extends RVCT_model {
 		//echo $inicio;
 		return $this->custom_get('rvct_clientes', 'cli_data_reg', $inicio, $max_reg);
 	}
-	public function set_status()
-	{
-		foreach($this->get('rvct_clientes') as $keys)
-		{
 
-			$this->status[] = $keys['cli_status'];
-			
-		}
-		
-	}
 	public function find($id)
 	{
 		return $this->get('rvct_clientes', 'id', $id);
@@ -77,3 +69,21 @@ class Clientes extends RVCT_model {
 		$this->data['total'] = $this->get('rvct_clientes');
 	}
 }
+
+/*
+items::
+
+Data
+Empresa
+Cliente
+Total
+Pago
+Balanço
+Vencimento
+Status
+
+Açoes
+Ver
+Inserir Pgto
+
+*/

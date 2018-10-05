@@ -33,7 +33,7 @@ class RVCT_model extends Database{
 	}
 	protected function get($table_name, $row = null, $param = null)
 	{
-		if(is_null($param) && is_null($row))
+		if(is_null($param) || is_null($row))
 		{
 			$sql = $this->db->prepare("SELECT * FROM ".$table_name."");
 			//$sql->bindParam(':id', $id, \PDO::PARAM_INT);

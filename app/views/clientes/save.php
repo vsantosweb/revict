@@ -3,29 +3,7 @@
 
 print_r($_GET);
 print_r($_POST);
-//$token  = ($_GET['token'] == sha1('alterar') ? 'alterar': $_GET['token'] == sha1('criar') ? 'criar' : $_GET['token'] == sha1('deletar') ? 'deletar': 'nao');
 
-
-
-function set_token($token) {
-
-	if($token['token'] == sha1('alter')) {
-
-		$v_token = 'alter';
-	}
-	elseif($token['token'] == sha1('create')) {
-
-		$v_token = 'create';
-	}
-	elseif($token['token'] == sha1('delete')) {
-
-		$v_token = 'delete';
-	}else{
-		$v_token = null;
-	}
-
-	return $v_token;
-}
 
 function gateway_token($token) {
 
@@ -75,7 +53,10 @@ function gateway_token($token) {
 	
 }
 
-echo set_token($_GET);
-gateway_token(set_token($_GET));
+$token = ($_GET['token'] == sha1('alter')) ? 'alter' : 
+(($_GET['token'] == sha1('create')) ? 'create' : 
+($_GET['token'] == sha1('delete') ? 'delete' : 'false'));
+
+gateway_token($token);
 
 ?>
