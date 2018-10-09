@@ -19,33 +19,50 @@ class RVCT_model extends Database{
 		$arr_values = array_values($data);
 		$keys = implode(', ' , $arr_keys);
 		$values = implode("','", $arr_values);
-
+		echo $values.'<br>';
+		echo $keys. '<br>';
 		$sql = $this->db->prepare("INSERT INTO ".$table_name."($keys) VALUES ('$values')");
 		
 		if($sql->execute())
 		{
-			
+			echo 'cadastro efetuado';
 
 		}else{
+			echo 'algo deu errado';
 			return false;
 		}
 
 	}
-	protected function get($table_name, $row = null, $param = null)
+	protected function get($table_name, $column = null ,$row = null, $param = null)
 	{
-		if(is_null($param) || is_null($row))
+		if(isset($table_name) && is_null($column) && is_null($row) && is_null($param))
 		{
 			$sql = $this->db->prepare("SELECT * FROM ".$table_name."");
 			//$sql->bindParam(':id', $id, \PDO::PARAM_INT);
 			$sql->execute();
 			return $sql->fetchAll(\PDO::FETCH_ASSOC);
 
-		}else{
+		}elseif(is_null($column) && isset($row) && isset($param)){
 
 			$sql = $this->db->prepare("SELECT * FROM ".$table_name." WHERE " .$row."=:param");
 			$sql->bindParam(':param', $param, \PDO::PARAM_STR);
 			$sql->execute();
 			return $sql->fetchAll(\PDO::FETCH_ASSOC);
+
+		}elseif(isset($column) && is_null($row) && is_null($param)){
+
+			$sql = $this->db->prepare("SELECT " .$column." FROM ".$table_name."");
+			$sql->bindParam(':param', $param, \PDO::PARAM_STR);
+			$sql->execute();
+			return $sql->fetchAll(\PDO::FETCH_ASSOC);
+
+		}elseif(isset($column) && isset($row) && isset($param)){
+
+			$sql = $this->db->prepare("SELECT " .$column. " FROM ".$table_name." WHERE " .$row."=:param");
+			$sql->bindParam(':param', $param, \PDO::PARAM_STR);
+			$sql->execute();
+			return $sql->fetchAll(\PDO::FETCH_ASSOC);
+
 		}
 		
 	}
@@ -58,7 +75,6 @@ class RVCT_model extends Database{
 	}
 	protected function update($table_name, $data, $id = null)
 	{
-
 		foreach($data as $keys => $values) {
 
 			$sql = $this->db->prepare("UPDATE ".$table_name." SET $keys='$values' WHERE id= :id ");

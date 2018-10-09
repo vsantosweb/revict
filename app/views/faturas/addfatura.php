@@ -5,10 +5,10 @@
 <?php include '../../template/head.php'; ?>
 <?php include '../../template/navbar.php'; ?>
 
-<?php $cliente = new models\Clientes; 
-
+<?php $fatura = new models\Faturas; 
 
 ?>
+
 
 <div class="main_wrapper">
 	<div class="main_container container">
@@ -22,27 +22,32 @@
 						</a>
 					</div>
 					<div class="col-md-10">
-						<h3 class="rvct_title">Cadastrar Cliente </h3>
+						<h3 class="rvct_title">Cadastrar Fatura </h3>
 					</div>
 				</div>
 				<div class="row">
 					<form class="form_cadastros" method="post" action="save.php?token=<?php echo sha1('create'); ?>">
 						<div class="form-row">
 							<div class="form-group col-md-12">
-								<label>Nome Completo</label>
-								<input name="cli_nome" type="text" class="form-control" placeholder="Nome do cliente" required value="teste">
+								<label>Cliente</label>
+								<select name="cli_id" class="form-control">
+									<?php foreach($fatura->get_clientes()  as $keys => $value){
+										echo '<option  value=" '.$value['id'].' ">'. $value['cli_nome'].' </option>';
+									} ?>
+								</select>
+								<input hidden="true" value="<?php echo $value['id']?>">
 							</div>
 							<div class="form-group col-md-6">
-								<label>CPF</label>
-								<input name="cli_cpf" type="text" class="form-control" placeholder="CPF do cliente" required value="teste">
+								<label>Emitido em</label>
+								<input name="fat_data_emissao" type="date" class="form-control" placeholder="CPF do fatura" required>
 							</div>
 							<div class="form-group col-md-6">
-								<label>Telefone</label>
-								<input name="cli_phone" type="tel" class="form-control" placeholder="Telefone do Cliente" required value="teste">
+								<label>Vencimento em</label>
+								<input name="fat_vencimento" type="date" class="form-control" placeholder="Telefone do fatura" required>
 							</div>
-							<div class="form-group col-md-12">
-								<label>Email</label>
-								<input name="cli_email" type="email" class="form-control"placeholder="Email do Cliente" required value="teste@teste.com">
+							<div class="form-group col-md-3">
+								<label>Valor da fatura</label>
+								<input name="fat_total" type="number" class="form-control"placeholder="Email do fatura" required>
 							</div>
 						</div>
 						<button type="submit" class="rvct_btn_primary">Salvar</button>

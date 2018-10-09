@@ -23,13 +23,13 @@ function auth_validate($post) {
 	if($login->auth()) {
 
 		$_SESSION = $keys;
-		header('location: http://localhost/revict/app/views/clientes');
+		header('Location: /revict/app/views/clientes');
 
 	}else{
 
 		unset($_SESSION);
 		session_destroy();
-		header('location: http://localhost/revict/app/views/login');
+		header('Location: /revict/app/views/login');
 	}
 	//header('location: http://localhost/revict/app/views/dashboard');
 

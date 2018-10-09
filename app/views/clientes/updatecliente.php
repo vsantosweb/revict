@@ -44,9 +44,16 @@ foreach($row_match as $keys)
 										<label>Telefone</label>
 										<input name="cli_phone" type="tel" class="form-control" placeholder="Telefone do Cliente" required value="<?php echo $keys['cli_phone']; ?>">
 									</div>
-									<div class="form-group col-md-12">
+									<div class="form-group col-md-8">
 										<label>Email</label>
-										<input name="cli_email" type="email" class="form-control"placeholder="Email do Cliente" required value="<?php echo $keys['cli_email']; ?>">
+										<input name="cli_email" type="email" class="form-control" placeholder="Email do Cliente" required value="<?php echo $keys['cli_email']; ?>">
+									</div>
+									<div class="form-group col-md-4">
+										<label>Status</label>
+										<select class="form-control" name="cli_status">
+											<option><?php echo $keys['cli_status']; ?></option>
+											<?php foreach($cliente->status as $status){echo '<option value="'.$status['status_nome'].'">'.$status['status_nome'].'</option>';} ?>
+										</select>
 									</div>
 								</div>
 								<button type="submit" class="rvct_btn_primary">Alterar</button>

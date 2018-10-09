@@ -11,15 +11,16 @@ class Clientes extends RVCT_model {
 	{
 		parent::__construct();
 		$this->relatorios();
-		$this->set_status();
+		$this->get_status();
 	}
 	
 	public function create($data)
 	{
-		$rows = $this->get('rvct_clientes', 'cli_cpf', $data['cli_cpf']);
+		$rows = $this->get('rvct_clientes', 'cli_cpf', 'cli_cpf', $data['cli_cpf']);
 
 		if(is_null($rows) || empty($rows) || $rows < 0){
 
+			$data['cli_status'] = 'ativo';
 			$this->insert('rvct_clientes', $data);
 
 			return true;
@@ -49,19 +50,19 @@ class Clientes extends RVCT_model {
 		//echo $inicio;
 		return $this->custom_get('rvct_clientes', 'cli_data_reg', $inicio, $max_reg);
 	}
-	public function set_status()
+	public function get_status()
 	{
-		foreach($this->get('rvct_clientes') as $keys)
+		foreach($this->get('rvct_cliente_status') as $keys)
 		{
 
-			$this->status[] = $keys['cli_status'];
+			$this->status[] = $keys;
 			
 		}
-		
+		return $this->status;
 	}
 	public function find($id)
 	{
-		return $this->get('rvct_clientes', 'id', $id);
+		return $this->get('rvct_clientes',  null , 'id', $id);
 	}
 
 	public function alter($data, $id){
@@ -72,8 +73,18 @@ class Clientes extends RVCT_model {
 		
 		$this->delete('rvct_clientes', $id);
 	}
+	public function status($status) {
+
+		$result = $this->data['status'] = $this->get('rvct_clientes', 'cli_status', 'cli_Status', $status);
+
+		return count($result);
+	}
 	public function relatorios()
 	{
-		$this->data['total'] = $this->get('rvct_clientes');
+
+		$this->data['total'] = $this->get('rvct_clientes', 'id');
+
+		$this->data['status'] = $this->get('rvct_clientes', 'cli_status');
+
 	}
 }

@@ -18,15 +18,17 @@ class Login extends RVCT_model
 
 		session_destroy();
 
-		header('location: http://localhost/revict/app/views/login');
+		header('location:/revict/app/views/login');
 	}
 
 	public function auth()
+	
 	{
 		return $this->auth ? session_start() : false;
 	}
 
 	public function validate()
+
 	{
 		return $this->get('rvct_users');
 	}

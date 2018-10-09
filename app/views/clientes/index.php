@@ -4,11 +4,12 @@
 <?php include '../../template/navbar.php'; ?>
 
 <?php $cliente = new models\Clientes; 
-	print_r($cliente->status);
+
+
 ?>
 
 <div class="main_wrapper">
-	<div class="main_container container">
+	<div class="main_container container-fluid">
 		<div class="row">
 			<div class="col-md-10">
 				<div class="main_header row">
@@ -47,10 +48,7 @@
 									<td><?php echo $value['cli_email']; ?></td>
 									<td><?php echo $value['cli_cpf']; ?></td>
 									<td><span 
-										<?php echo 
-										($value['cli_status'] == 'negativado') ? 'class="status_2"' : 
-										(($value['cli_status'] == 'ativo') ? 'class="status_1"': 
-										($value['cli_status'] == 'desativado' ? 'class="status_3"': 'false'));?>>
+										<?php echo ($value['cli_status'] == 'negativado') ? 'class="status_2"' : (($value['cli_status'] == 'ativo') ? 'class="status_1"': ($value['cli_status'] == 'desativado' ? 'class="status_3"': 'false'));?>>
 										<?php  echo ucfirst($value['cli_status']);?><span></td>
 									<td><?php echo date_format(new DateTime($keys['cli_data_reg']), "d/m/Y");?></td>
 									<td>

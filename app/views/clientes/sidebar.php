@@ -6,8 +6,13 @@
 		</div>
 		<ul class="list-group list-group-flush">
 			<li class="list-group-item">total: <?php echo count($cliente->data['total']);?></li>
-			<li class="list-group-item">Ativos: NaN</li>
-			<li class="list-group-item">Negativados: NaN</li>
+			<li class="list-group-item">Ativos: <?php echo $cliente->status('ativo'); ?></li>
+			<li class="list-group-item">Negativados: <?php echo $cliente->status('negativado'); ?></li>
+			<li class="list-group-item">Desativados: <?php echo $cliente->status('desativado'); ?></li>
+
+			<?php 
+			
+			?>
 		</ul>
 	</div>
 </div>

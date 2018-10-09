@@ -48,6 +48,7 @@
   text-align: right;
 }
 .form_cadastros {
+  width: 100%;
   float: left;
   padding: 15px;
   background: #fff;
@@ -107,40 +108,59 @@
   text-align: center;
   display: block;
   color: #fff;
-  padding: 4px;
   max-width: 80%;
   border-radius: 15px;
   font-size: 13px;
   font-weight: bold;
-  background: #F44336;
+  border: solid 1px #F44336;
+  color: #F44336;
 }
 .status_1 {
   text-align: center;
   display: block;
   color: #fff;
-  padding: 4px;
   max-width: 80%;
   border-radius: 15px;
   font-size: 13px;
   font-weight: bold;
-  background: green;
+  border: solid 1px green;
+  color: green;
 }
 .status_3 {
   text-align: center;
   display: block;
-  color: #fff;
-  padding: 4px;
   max-width: 80%;
   border-radius: 15px;
   font-size: 13px;
   font-weight: bold;
   background: #c1c1c1;
+  color: #fff;
+}
+.status_4 {
+  text-align: center;
+  display: block;
+  max-width: 80%;
+  border-radius: 15px;
+  font-size: 13px;
+  font-weight: bold;
+  background: #3f51b5;
+  color: #fff;
+}
+.status_5 {
+  text-align: center;
+  display: block;
+  color: #fff;
+  max-width: 80%;
+  border-radius: 15px;
+  font-size: 13px;
+  font-weight: bold;
+  border: solid 1px #000;
+  color: #000;
 }
 .status {
   text-align: center;
   display: block;
   color: #fff;
-  padding: 4px;
   max-width: 80%;
   border-radius: 15px;
   font-size: 13px;
