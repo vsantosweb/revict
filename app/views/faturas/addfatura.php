@@ -29,7 +29,7 @@
 					<form class="form_cadastros" method="post" action="save.php?token=<?php echo sha1('create'); ?>">
 						<div class="form-row">
 							<div class="form-group col-md-12">
-								<label>Cliente</label>
+								<label>Cliente:</label>
 								<select name="cli_id" class="form-control">
 									<?php foreach($fatura->get_clientes()  as $keys => $value){
 										echo '<option  value=" '.$value['id'].' ">'. $value['cli_nome'].' </option>';
@@ -38,16 +38,16 @@
 								<input hidden="true" value="<?php echo $value['id']?>">
 							</div>
 							<div class="form-group col-md-6">
-								<label>Emitido em</label>
-								<input name="fat_data_emissao" type="date" class="form-control" placeholder="CPF do fatura" required>
+								<label>Emitido em: </label>
+								<input name="fat_data_emissao" type="date" class="form-control" placeholder="Emissão" required>
 							</div>
 							<div class="form-group col-md-6">
-								<label>Vencimento em</label>
-								<input name="fat_vencimento" type="date" class="form-control" placeholder="Telefone do fatura" required>
+								<label>Vencimento em: </label>
+								<input name="fat_vencimento" type="date" class="form-control" placeholder="Vencimento" required>
 							</div>
 							<div class="form-group col-md-3">
-								<label>Valor da fatura</label>
-								<input name="fat_total" type="number" class="form-control"placeholder="Email do fatura" required>
+								<label>Valor da fatura: </label>
+								<input name="fat_total" type="number" class="form-control"placeholder="Valor da Cobrança" required>
 							</div>
 						</div>
 						<button type="submit" class="rvct_btn_primary">Salvar</button>
