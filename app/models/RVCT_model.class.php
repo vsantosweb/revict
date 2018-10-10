@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * CRUD 
+ *
+ * @author  Vitor Santos
+ * @link    https://vsantosweb.com
+ */
+/**
+
+ */
+
 namespace models;
 
 use config\Database;
@@ -12,7 +22,7 @@ class RVCT_model extends Database{
 		parent::__construct();
 	}
 
-	public function insert($table_name, $data) {
+	protected function insert($table_name, $data) {
 
 
 		$arr_keys = array_keys($data);
