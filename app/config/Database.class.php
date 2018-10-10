@@ -8,7 +8,7 @@ class Database {
 	private $host ='localhost';
 	private $dbname ='revict';
 	private $dbuser ='revict';
-	private $dbpasswd ='developer';
+	private $dbpasswd ='revict';
 	private $charset = 'utf8';
 
 	function __construct(){
