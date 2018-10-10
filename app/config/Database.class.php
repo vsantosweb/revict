@@ -7,7 +7,7 @@ class Database {
 	protected $db;
 	private $host ='localhost';
 	private $dbname ='revict';
-	private $dbuser ='root';
+	private $dbuser ='revict';
 	private $dbpasswd ='developer';
 	private $charset = 'utf8';
 
